@@ -721,9 +721,6 @@ async def auto_filter(client, msg):
 
     # Send the message with the search results and buttons
     autodel = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-    await asyncio.sleep(150)
-    await autodel.delete()  # del msg auto 10min filter
-
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
