@@ -720,9 +720,12 @@ async def auto_filter(client, msg):
     cap = f"<b>👋 𝖧𝖾𝗒 {message.from_user.mention}\n🔻𝙏𝙖𝙥 𝙤𝙣 𝙩𝙝𝙚 𝙛𝙞𝙡𝙚 𝙗𝙪𝙩𝙩𝙤𝙣 𝙖𝙣𝙙 𝙩𝙝𝙚𝙣 𝙨𝙩𝙖𝙧𝙩 𝙩𝙤 𝙙𝙤𝙬𝙣𝙡𝙤𝙖𝙙.🔻</b>"  # result for group
 
     # Send the message with the search results and buttons
-    autodel = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-             await asyncio.sleep(150)
-            await autodel.delete()  # del msg auto 10min filter
+    autodel = await message.reply_text(
+        cap,
+        reply_markup=InlineKeyboardMarkup(btn)
+    )
+    await asyncio.sleep(150)
+    await autodel.delete()  # auto delete after 150 seconds
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
